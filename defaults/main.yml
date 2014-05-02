@@ -1,0 +1,8 @@
+---
+
+django_settings_module: main.settings.local
+django_settings_path: "{{base_source_directory}}/{{django_settings_module.replace('.', '/')}}.py"
+django_additional_settings: []
+django_migrate: no
+django_collectstatic: no
+django_manage_ignore_errors: yes

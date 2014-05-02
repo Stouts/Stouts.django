@@ -1,0 +1,5 @@
+---
+
+- include: settings.yml
+- include: migrate.yml
+  when: django_migrate

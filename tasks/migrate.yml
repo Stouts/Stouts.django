@@ -1,0 +1,19 @@
+---
+
+- name: Sync database
+  django_manage:
+      app_path={{base_source_directory}}
+      command=syncdb
+      settings={{django_settings_module}}
+      virtualenv={{wsgi_virtualenv}}
+  ignore_errors: "{{django_manage_ignore_errors}}"
+  tags: [django, migrate]
+
+- name: Migrate database
+  django_manage:
+      app_path={{base_source_directory}}
+      command=migrate
+      settings={{django_settings_module}}
+      virtualenv={{wsgi_virtualenv}}
+  ignore_errors: "{{django_manage_ignore_errors}}"
+  tags: [django, migrate]
