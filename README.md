@@ -1,14 +1,14 @@
-st.django
-=========
+Stouts.django
+=============
 
-[![Build Status](https://travis-ci.org/Stouts/st.django.png)](https://travis-ci.org/Stouts/st.django)
+[![Build Status](https://travis-ci.org/Stouts/Stouts.django.png)](https://travis-ci.org/Stouts/Stouts.django)
 
 Ansible role whith setup Django projects.
 
 
 #### Requirements & Dependencies
 
-- https://github.com/Stouts/st.wsgi
+- https://github.com/Stouts/Stouts.wsgi
 
 
 #### Variables
@@ -29,7 +29,7 @@ Also see documentation for required roles bellow.
 #### Usage
 
 Clone dependencies.
-Add `st.django` to your roles and change variables in your playbook file.
+Add `Stouts.django` to your roles and change variables in your playbook file.
 Example:
 
 ```yaml
@@ -37,7 +37,7 @@ Example:
 - hosts: all
 
   roles:
-    - st.django
+    - Stouts.django
 
   vars:
     base_project_name: facebook
@@ -61,4 +61,4 @@ Licensed under the MIT License. See the LICENSE file for details.
 
 #### Feedback, bug-reports, requests, ...
 
-Are [welcome](https://github.com/Stouts/st.django/issues)!
+Are [welcome](https://github.com/Stouts/Stouts.django/issues)!
