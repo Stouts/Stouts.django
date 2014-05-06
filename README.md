@@ -14,12 +14,13 @@ Ansible role whith setup Django projects.
 #### Variables
 
 ```yaml
-django_additional_settings: []                  # Additional Django settings
-django_collectstatic: no                        # Run collect static
-django_migrate: no                              # Run syncdb and migrations
-django_settings_module: main.settings.local     # Path to symlink which generated settings
+django_additional_settings: []
+django_collectstatic: no
+django_migrate: no
+django_settings_module: main.settings.local
 django_settings_directory: "{{base_source_directory}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
 django_settings_path: "{{base_source_directory}}/{{django_settings_module.replace('.', '/')}}.py"
+django_databases: []                    # Databases params
 ```
 
 Also see documentation for required roles bellow.
@@ -45,6 +46,11 @@ Example:
       - ANOTHER_OPTION = "{{ansible var}}"
     django_migrate: yes
     django_collectstatic: yes
+    django_databases:
+      - default:
+          NAME: "{{base_project_name}}"
+          USER: "{{base_project_name}}"
+          PASSWORD: "{{base_project_name}}"
 
 ```
 

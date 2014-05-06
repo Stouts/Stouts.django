@@ -1,4 +1,5 @@
 ---
+# st.django default settings
 
 django_additional_settings: []
 django_collectstatic: no
@@ -6,3 +7,4 @@ django_migrate: no
 django_settings_module: main.settings.local
 django_settings_directory: "{{base_source_directory}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
 django_settings_path: "{{base_source_directory}}/{{django_settings_module.replace('.', '/')}}.py"
+django_databases: []

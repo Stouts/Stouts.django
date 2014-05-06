@@ -7,7 +7,7 @@
       settings={{django_settings_module}}
       virtualenv={{wsgi_virtualenv}}
   ignore_errors: "{{django_ignore_errors}}"
-  tags: [django, migrate]
+  tags: [django, django_migrate]
 
 - name: Migrate database
   django_manage:
@@ -16,4 +16,4 @@
       settings={{django_settings_module}}
       virtualenv={{wsgi_virtualenv}}
   ignore_errors: "{{django_ignore_errors}}"
-  tags: [django, migrate]
+  tags: [django, django_migrate]
