@@ -1,7 +1,12 @@
 ---
 
 - name: Prepare Django settings
-  template: src=settings.py.j2 dest={{ base_configuration_directory }}/settings.py
+  template: src=settings.py.j2 dest={{base_configuration_directory}}/settings.py
+
+- name: Check for settings directory exists
+  stat: path={{django_settings_directory}}
+  register: check_path
 
 - name: Link Django settings
-  file: src={{ base_configuration_directory }}/settings.py dest={{ django_settings_path }} state=link
+  file: src={{base_configuration_directory}}/settings.py dest={{django_settings_path}} state=link
+  when: check_path.stat.exists
