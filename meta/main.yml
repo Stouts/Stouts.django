@@ -1,3 +1,2 @@
 dependencies:
-  - Ansibles.postgresql
   - st.wsgi
