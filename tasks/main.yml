@@ -1,5 +1,13 @@
 ---
 
 - include: settings.yml
+  when: django_enabled
+  tags: [django, django-settings]
+
 - include: migrate.yml
-  when: django_migrate
+  when: django_enabled and django_migrate
+  tags: [django, django-migrate]
+
+- include: collectstatic.yml
+  when: django_enabled and django_collectstatic
+  tags: [django, django-collectstatic]

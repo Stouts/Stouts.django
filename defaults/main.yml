@@ -1,6 +1,7 @@
 ---
 # st.django default settings
 
+django_enabled: yes
 django_additional_settings: []
 django_collectstatic: no
 django_migrate: no
