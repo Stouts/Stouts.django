@@ -2,7 +2,7 @@
 
 - name: Collect static
   django_manage:
-      app_path={{base_source_directory}}
+      app_path={{django_app_path}}
       command=collectstatic
       settings={{django_settings_module}}
       virtualenv={{wsgi_virtualenv}}

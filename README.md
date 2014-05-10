@@ -14,14 +14,25 @@ Ansible role whith setup Django projects.
 #### Variables
 
 ```yaml
-django_enabled: yes                     # Enable role
-django_additional_settings: []          # Add additional settings
-django_collectstatic: no                # Collect static
-django_migrate: no                      # Sync and migrate databases
+django_enabled: yes                           # The role is enabled
+django_collectstatic: no                      # Run collectstatic on provision
+django_migrate: no                            # Run migrations on provision
+django_app_path: "{{base_source_directory}}"  # Path to django application
+django_settings_imports:                    # List of requirements
+  - from .{{base_environment}} import *
 django_settings_module: main.settings.local
-django_settings_directory: "{{base_source_directory}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
-django_settings_path: "{{base_source_directory}}/{{django_settings_module.replace('.', '/')}}.py"
-django_databases: []                    # Databases params
+django_settings_directory: "{{django_app_path}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
+django_settings_path: "{{django_app_path}}/{{django_settings_module.replace('.', '/')}}.py"
+django_settings_additional: []                # List of strings to add Django settings
+                                              # Ex. django_settings_additional:
+                                              #       - DEBUG = True
+                                              #       - URLCONF = 'urls'
+django_settings_databases: []                 # List of databases to add Django settings
+                                              # Ex. django_settings_databases:
+                                              #       - default:
+                                              #           NAME: test
+                                              #           USER: test
+                                              #           PASSWORD: test
 ```
 
 Also see documentation for required roles bellow.
@@ -42,12 +53,12 @@ Example:
 
   vars:
     base_project_name: facebook
-    django_additional_settings:
-      - OPTION = "VALUE"
-      - ANOTHER_OPTION = "{{ansible var}}"
     django_migrate: yes
     django_collectstatic: yes
-    django_databases:
+    django_settings_additional:
+      - OPTION = "VALUE"
+      - ANOTHER_OPTION = "{{ansible var}}"
+    django_settings_databases:
       - default:
           NAME: "{{base_project_name}}"
           USER: "{{base_project_name}}"

@@ -1,0 +1,10 @@
+---
+
+- include: settings.yml
+  tags: [django, django-settings]
+
+- include: migrate.yml
+  tags: [django, django-migrate]
+
+- include: collectstatic.yml
+  tags: [django, django-collectstatic]
