@@ -13,9 +13,9 @@ DATABASES["{{alias}}"]["{{name}}"] = "{{value}}"
 {% endfor %}{% endfor %}{% endfor %}
 
 # Environment settings
-{% for option in django_settings_additional -%}
+{% for option in django_settings_additional %}
 {{ option }}
-{%- endfor %}
+{% endfor %}
 
 import logging
 logging.info('Local settings are loaded.')
