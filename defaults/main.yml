@@ -1,8 +1,10 @@
 ---
 
 django_enabled: yes                           # The role is enabled
-django_collectstatic: no                      # Run collectstatic on provision
-django_migrate: no                            # Run migrations on provision
+django_manage_list:                           # List of commands which will be executed
+  - collectstatic
+  - syncdb
+  - manage
 django_app_path: "{{base_source_directory}}"  # Path to django application
 django_settings_imports:                    # List of requirements
   - from .{{base_environment}} import *

@@ -3,10 +3,5 @@
 - include: settings.yml
   tags: [django, django-settings]
 
-- include: migrate.yml
-  when: django_migrate
-  tags: [django, django-migrate]
-
-- include: collectstatic.yml
-  when: django_collectstatic
-  tags: [django, django-collectstatic]
+- include: manage.yml
+  tags: [django, django-manage]

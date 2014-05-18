@@ -1,9 +1,10 @@
 ---
 
-- name: Collect static
+- name: django-manage | Run manage commangs
   django_manage:
+      command={{item}}
       app_path={{django_app_path}}
-      command=collectstatic
       settings={{django_settings_module}}
       virtualenv={{wsgi_virtualenv}}
-  ignore_errors: "{{django_ignore_errors}}"
+  with_items: django_manage_list
+  ignore_errors: yes

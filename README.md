@@ -15,8 +15,10 @@ Ansible role whith setup Django projects.
 
 ```yaml
 django_enabled: yes                           # The role is enabled
-django_collectstatic: no                      # Run collectstatic on provision
-django_migrate: no                            # Run migrations on provision
+django_manage_list:                           # List of commands which will be executed
+  - collectstatic
+  - syncdb
+  - manage
 django_app_path: "{{base_source_directory}}"  # Path to django application
 django_settings_imports:                    # List of requirements
   - from .{{base_environment}} import *
@@ -33,6 +35,11 @@ django_settings_databases: []                 # List of databases to add Django 
                                               #           NAME: test
                                               #           USER: test
                                               #           PASSWORD: test
+django_settings_caches: []                    # List of cache backends to add Django settings
+                                              # Ex. django_settings_caches:
+                                              #       - default:
+                                              #           BACKEND: django.core.cache.backends.locmem.LocMemCache
+                                              #           KEY_PREFIX: my_own_prefix
 ```
 
 Also see documentation for required roles bellow.
@@ -53,8 +60,10 @@ Example:
 
   vars:
     base_project_name: facebook
-    django_migrate: yes
-    django_collectstatic: yes
+    django_manage_list:
+      - syncdb
+      - migrate
+      - collectstatic
     django_settings_additional:
       - OPTION = "VALUE"
       - ANOTHER_OPTION = "{{ansible var}}"
