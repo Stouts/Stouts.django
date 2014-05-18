@@ -6,10 +6,18 @@
 {{_import}}
 {% endfor %}
 
+# Database settings
 {% for db in django_settings_databases %}{% for alias, cred in db.items() %}
 DATABASES["{{alias}}"] = DATABASES["{{alias}}"] or {}
 {% for name, value in cred.items() -%}
 DATABASES["{{alias}}"]["{{name}}"] = "{{value}}"
+{% endfor %}{% endfor %}{% endfor %}
+
+# Cache settings
+{% for cache in django_settings_caches %}{% for alias, cred in cache.items() %}
+CACHES["{{alias}}"] = CACHES["{{alias}}"] or {}
+{% for name, value in cred.items() -%}
+CACHES["{{alias}}"]["{{name}}"] = "{{value}}"
 {% endfor %}{% endfor %}{% endfor %}
 
 # Environment settings

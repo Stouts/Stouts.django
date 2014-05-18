@@ -19,3 +19,8 @@ django_settings_databases: []                 # List of databases to add Django 
                                               #           NAME: test
                                               #           USER: test
                                               #           PASSWORD: test
+django_settings_caches: []                    # List of cache backends to add Django settings
+                                              # Ex. django_settings_caches:
+                                              #       - default:
+                                              #           BACKEND: django.core.cache.backends.locmem.LocMemCache
+                                              #           KEY_PREFIX: my_own_prefix
