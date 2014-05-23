@@ -19,9 +19,9 @@ django_manage_list:                           # List of commands which will be e
   - collectstatic
   - syncdb
   - manage
-django_app_path: "{{base_source_directory}}"  # Path to django application
+django_app_path: "{{deploy_source_dir}}"    # Path to django application
 django_settings_imports:                    # List of requirements
-  - from .{{base_environment}} import *
+  - from .{{deploy_environment}} import *
 django_settings_module: main.settings.local
 django_settings_directory: "{{django_app_path}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
 django_settings_path: "{{django_app_path}}/{{django_settings_module.replace('.', '/')}}.py"
@@ -59,7 +59,7 @@ Example:
     - Stouts.django
 
   vars:
-    base_project_name: facebook
+    deploy_project_name: facebook
     django_manage_list:
       - syncdb
       - migrate
@@ -69,9 +69,9 @@ Example:
       - ANOTHER_OPTION = "{{ansible var}}"
     django_settings_databases:
       - default:
-          NAME: "{{base_project_name}}"
-          USER: "{{base_project_name}}"
-          PASSWORD: "{{base_project_name}}"
+          NAME: "{{deploy_project_name}}"
+          USER: "{{deploy_project_name}}"
+          PASSWORD: "{{deploy_project_name}}"
 
 ```
 
