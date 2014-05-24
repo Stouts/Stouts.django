@@ -20,7 +20,7 @@ script:
   - ansible-playbook --syntax-check -i inventory test.yml
 
   # First run
-  - ansible-playbook -i inventory test.yml --connection=local --sudo -vvv
+  - ansible-playbook -i inventory test.yml --connection=local --sudo -vv
 
   # Second run Idempotence test
   - >
@@ -29,6 +29,7 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
+  - ls -la /home/travis/deploy/source/simple
   - ls -la /home/travis/deploy/source/simple
 
 
@@ -39,5 +40,5 @@ python_pip_latest:
   - virtualenv
 source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
-    dest: /home/travis/deploy/source
+    dest: "{{deploy_source_dir}}"
 django_app_path: "{{deploy_source_dir}}/simple"
