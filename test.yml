@@ -4,6 +4,7 @@
   - Stouts.supervisor
   - Stouts.nginx
   - Stouts.python
+  - Stouts.source
   - Stouts.wsgi
   tasks:
     - include: tasks/main.yml

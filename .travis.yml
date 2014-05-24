@@ -8,6 +8,7 @@ before_install:
  - git clone https://github.com/Stouts/Stouts.supervisor roles/Stouts.supervisor
  - git clone https://github.com/Stouts/Stouts.nginx roles/Stouts.nginx
  - git clone https://github.com/Stouts/Stouts.python roles/Stouts.python
+ - git clone https://github.com/Stouts/Stouts.source roles/Stouts.source
  - git clone https://github.com/Stouts/Stouts.wsgi roles/Stouts.wsgi
 install:
   - pip install ansible>=1.6.0
@@ -34,3 +35,6 @@ wsgi_app_path: /home/travis/Stouts.wsgi/tests/app.py
 wsgi_app_dir: /home/travis/Stouts.wsgi/tests
 python_pip_latest:
   - virtualenv
+source_source:
+  - repo: https://github.com/Dipsomaniac/dj-simple.git
+    dest: /home/travis/deploy/source
