@@ -1,3 +1,12 @@
 - hosts: all
+  roles:
+  - Stouts.deploy
+  - Stouts.supervisor
+  - Stouts.nginx
+  - Stouts.python
+  - Stouts.wsgi
+  tasks:
+    - include: main.yml
   vars_files:
-    - 'vars/main.yml'
+    - defaults/main.yml
+    - vars/main.yml
