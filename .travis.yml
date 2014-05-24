@@ -27,3 +27,10 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+
+deploy_dir: /home/travis/deploy
+wsgi_app_path: /home/travis/Stouts.wsgi/tests/app.py
+wsgi_app_dir: /home/travis/Stouts.wsgi/tests
+python_pip_latest:
+  - virtualenv

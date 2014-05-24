@@ -6,7 +6,7 @@
   - Stouts.python
   - Stouts.wsgi
   tasks:
-    - include: main.yml
+    - include: tasks/main.yml
   vars_files:
     - defaults/main.yml
     - vars/main.yml
