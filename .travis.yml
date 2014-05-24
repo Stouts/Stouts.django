@@ -42,4 +42,4 @@ python_pip_latest:
 source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
     dest: "{{deploy_source_dir}}"
-django_app_path: "{{deploy_source_dir}}/simple"
+wsgi_app_dir: "{{deploy_source_dir}}/simple"
