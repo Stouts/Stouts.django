@@ -20,7 +20,7 @@ script:
   - ansible-playbook --syntax-check -i inventory test.yml
 
   # First run
-  - ansible-playbook -i inventory test.yml --connection=local --sudo -vv
+  - ansible-playbook -i inventory test.yml --connection=local --sudo
 
   # Second run Idempotence test
   - >
@@ -32,6 +32,7 @@ script:
   - sudo rm -f /etc/nginx/sites-enabled/default
   - sudo /etc/init.d/nginx restart
   - curl localhost
+  - cat /home/travis/build/deploy/logs/*
 
 deploy_dir: "/home/travis/build/deploy"
 python_pip_latest:
