@@ -34,12 +34,11 @@ script:
   - curl localhost
   - cat /home/travis/build/deploy/logs/*
 
+python_pip_latest:
+  - virtualenv
 deploy_dir: "/home/travis/build/deploy"
-python_pip_latest:
-  - virtualenv
-python_pip_latest:
-  - virtualenv
 source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
     dest: "{{deploy_source_dir}}"
 wsgi_app_dir: "{{deploy_source_dir}}/simple"
+wsgi_virtualenv_requirements: "{{deploy_source_dir}}/requirements.txt"
