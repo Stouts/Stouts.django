@@ -29,9 +29,9 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  - ls -la /home/travis/deploy/source/simple
-  - ls -la /home/travis/deploy/source/simple
-
+  - sudo rm -f /etc/nginx/sites-enabled/default
+  - sudo /etc/init.d/nginx restart
+  - curl localhost
 
 deploy_dir: "/home/travis/build/deploy"
 python_pip_latest:
