@@ -5,8 +5,8 @@ django_manage_list:                           # List of commands which will be e
   - collectstatic
   - syncdb
   - manage
-django_app_path: "{{wsgi_app_dir}}"    # Path to django application
-django_settings_imports:                    # List of requirements
+django_app_path: "{{wsgi_app_dir}}"           # Path to django application
+django_settings_imports:
   - from .{{deploy_environment}} import *
 django_settings_module: main.settings.local
 django_settings_directory: "{{django_app_path}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
