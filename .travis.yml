@@ -30,9 +30,9 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
 
-deploy_dir: "{{ansible_env['TRAVIS_BUILD_DIR']}}/deploy"
-wsgi_app_path: "{{ansible_env['TRAVIS_BUILD_DIR']}}/Stouts.wsgi/tests/app.py"
-wsgi_app_dir: "{{ansible_env['TRAVIS_BUILD_DIR']}}/Stouts.wsgi/tests"
+deploy_dir: "/home/travis/build/deploy"
+python_pip_latest:
+  - virtualenv
 python_pip_latest:
   - virtualenv
 source_source:
