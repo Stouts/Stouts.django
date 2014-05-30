@@ -4,7 +4,7 @@ django_enabled: yes                           # The role is enabled
 django_manage_list:                           # List of commands which will be executed
   - collectstatic
   - syncdb
-  - manage
+  - migrate
 django_app_path: "{{wsgi_app_dir}}"           # Path to django application
 django_settings_imports:
   - from .{{deploy_environment}} import *
