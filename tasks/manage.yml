@@ -8,5 +8,3 @@
       virtualenv={{wsgi_virtualenv}}
   with_items: django_manage_list
   ignore_errors: yes
-
-- debug: msg={{django_app_path}}
