@@ -40,3 +40,4 @@ source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
     dest: "{{deploy_src_dir}}"
 wsgi_src_dir: "{{deploy_src_dir}}/simple"
+wsgi_pip_requirements: "{{deploy_src_dir}}/requirements.txt"
