@@ -3,8 +3,8 @@
 - name: django-manage | Run manage commangs
   django_manage:
       command={{item}}
-      app_path={{django_app_path}}
+      app_path={{django_src_dir}}
       settings={{django_settings_module}}
-      virtualenv={{wsgi_virtualenv}}
+      virtualenv={{django_env_dir}}
   with_items: django_manage_list
-  ignore_errors: yes
+  ignore_errors: django_ignore_errors

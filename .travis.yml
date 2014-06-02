@@ -38,6 +38,5 @@ python_pip_latest:
 deploy_dir: "/home/travis/build/deploy"
 source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
-    dest: "{{deploy_source_dir}}"
-wsgi_app_dir: "{{deploy_source_dir}}/simple"
-wsgi_requirements: "{{deploy_source_dir}}/requirements.txt"
+    dest: "{{deploy_src_dir}}"
+wsgi_src_dir: "{{deploy_src_dir}}/simple"
