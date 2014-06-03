@@ -16,7 +16,14 @@ DATABASES["{{alias}}"]["{{name}}"] = "{{value}}"
 {% for cache in django_settings_caches %}{% for alias, cred in cache.items() %}
 CACHES["{{alias}}"] = CACHES["{{alias}}"] or {}
 {% for name, value in cred.items() -%}
+{% if name == 'OPTIONS' %}
+CACHES["{{alias}}"]["{{name}}"] = CACHES["{{alias}}"]["{{name}}"] or {}
+{% for option_name, option_value in value.items() -%}
+CACHES["{{alias}}"]["{{name}}"]["{{option_name}}"] = "{{option_value}}"
+{% endfor %}
+{% else %}
 CACHES["{{alias}}"]["{{name}}"] = "{{value}}"
+{% endif %}
 {% endfor %}{% endfor %}{% endfor %}
 
 # Environment settings

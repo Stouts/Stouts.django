@@ -46,6 +46,8 @@ django_settings_caches: []                    # List of cache backends to add Dj
                                               #       - default:
                                               #           BACKEND: django.core.cache.backends.locmem.LocMemCache
                                               #           KEY_PREFIX: my_own_prefix
+                                              #           OPTIONS:
+                                              #             SOME_OPTION: 'my.awesome.option'
 ```
 
 Also see documentation for required roles bellow.
