@@ -24,13 +24,14 @@ django_manage_list:                           # List of commands which will be e
 django_src_dir: "{{wsgi_src_dir}}"           # Path to django application
 django_etc_dir: "{{wsgi_etc_dir}}"           # Where place a configuration files
 django_env_dir: "{{wsgi_env_dir}}"           # Use virtualenv (set blank "" to disable)
+django_app_dir: "{{django_src_dir}}"         # Path where manage.py is exists
 
 # Generate local settings
 django_settings_imports:
   - from .{{deploy_env}} import *
 django_settings_module: main.settings.local
 django_settings_dir: "{{django_src_dir}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
-django_settings: "{{django_src_dir}}/{{django_settings_module.replace('.', '/')}}.py"
+django_settings: "{{django_settings_dir}}/{{django_settings_module.split('.')[-1]}}.py"
 django_settings_additional: []                # List of strings to add Django settings
                                               # Ex. django_settings_additional:
                                               #       - DEBUG = True
@@ -46,8 +47,6 @@ django_settings_caches: []                    # List of cache backends to add Dj
                                               #       - default:
                                               #           BACKEND: django.core.cache.backends.locmem.LocMemCache
                                               #           KEY_PREFIX: my_own_prefix
-                                              #           OPTIONS:
-                                              #             SOME_OPTION: 'my.awesome.option'
 ```
 
 Also see documentation for required roles bellow.

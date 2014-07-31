@@ -3,7 +3,7 @@
 - name: django-manage | Run manage commangs
   django_manage:
       command={{item}}
-      app_path={{django_src_dir}}
+      app_path={{django_app_dir}}
       settings={{django_settings_module}}
       virtualenv={{django_env_dir}}
   with_items: django_manage_list
