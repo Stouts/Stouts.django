@@ -2,6 +2,7 @@ Stouts.django
 =============
 
 [![Build Status](https://travis-ci.org/Stouts/Stouts.django.png)](https://travis-ci.org/Stouts/Stouts.django)
+[![Stories in Ready](https://badge.waffle.io/Stouts/Stouts.django.svg?label=ready&title=Ready)](http://waffle.io/Stouts/Stouts.django)
 
 Ansible role whith setup Django projects.
 
