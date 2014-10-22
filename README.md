@@ -1,8 +1,9 @@
 Stouts.django
 =============
 
-[![Build Status](https://travis-ci.org/Stouts/Stouts.django.png)](https://travis-ci.org/Stouts/Stouts.django)
-[![Stories in Ready](https://badge.waffle.io/Stouts/Stouts.django.svg?label=ready&title=Ready)](http://waffle.io/Stouts/Stouts.django)
+[![Build Status](http://img.shields.io/travis/Stouts/Stouts.django.svg?style=flat-square)](https://travis-ci.org/Stouts/Stouts.django)
+[![Galaxy](http://img.shields.io/badge/galaxy-Stouts.django-blue.svg?style=flat-square)](https://galaxy.django.com/list#/roles/832)
+[![Tag](http://img.shields.io/github/tag/Stouts/Stouts.django.svg?style=flat-square)]()
 
 Ansible role whith setup Django projects.
 
