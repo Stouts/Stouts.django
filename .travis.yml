@@ -22,6 +22,8 @@ script:
   # First run
   - ansible-playbook -i inventory test.yml --connection=local --sudo
 
+  - ansible-playbook -i inventory test.yml --connection=local --sudo
+
   # Second run Idempotence test
   - >
     ansible-playbook -i inventory test.yml --connection=local --sudo
@@ -29,11 +31,12 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
 
-  - sudo rm -f /etc/nginx/sites-enabled/default
-  - sudo /etc/init.d/nginx restart
   - curl localhost | grep "Hello world!" || exit 1
 
+deploy_env: develop
 deploy_dir: "/home/travis/build/deploy"
+nginx_delete_default_site: yes
+nginx_status: no
 source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
     dest: "{{deploy_src_dir}}"

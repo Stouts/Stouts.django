@@ -14,7 +14,7 @@ django_env_dir: "{{wsgi_virtualenv}}"        # Use virtualenv (set blank "" to d
 
 # Generate local settings
 django_settings_imports:
-  - from .{{deploy_env|default("")}} import *
+  - from .{{deploy_env}} import *
 django_settings_module: main.settings.local
 django_settings_dir: "{{django_app_dir}}/{{django_settings_module.split('.')[:-1]|join('/')}}"
 django_settings: "{{django_settings_dir}}/{{django_settings_module.split('.')[-1]}}.py"
