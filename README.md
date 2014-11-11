@@ -15,6 +15,9 @@ Ansible role whith setup Django projects.
 #### Variables
 
 ```yaml
+---
+# vim:sw=2:ft=ansible
+
 django_enabled: yes                           # The role is enabled
 
 django_manage_list:                           # List of commands which will be executed
@@ -24,7 +27,7 @@ django_manage_list:                           # List of commands which will be e
 
 django_app_dir: "{{wsgi_app_dir}}"           # Path where manage.py is exists
 django_etc_dir: "{{wsgi_etc_dir}}"           # Where place a configuration files
-django_env_dir: ""                           # Use virtualenv (set blank "" to disable)
+django_env_dir: "{{wsgi_virtualenv}}"        # Use virtualenv (set blank "" to disable)
 
 # Generate local settings
 django_settings_imports:

@@ -2,11 +2,9 @@
 
 - debug: var=django_env_dir
 
-- name: django-manage | Run manage commangs
-  django_manage:
-      command={{item}}
-      app_path={{django_app_dir}}
-      settings={{django_settings_module}}
-      virtualenv={{django_env_dir}}
+- name: django-manage | Run manage commands
+  command: "{{django_env_dir + '/bin/python' if django_env_dir else 'python'}} manage.py {{item}} --settings={{django_settings_module}}"
+  args:
+    chdir: "{{django_app_dir}}"
   with_items: django_manage_list
   ignore_errors: django_ignore_errors
