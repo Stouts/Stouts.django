@@ -1,5 +1,7 @@
 ---
 
+- debug: var=django_env_dir
+
 - name: django-manage | Run manage commangs
   django_manage:
       command={{item}}

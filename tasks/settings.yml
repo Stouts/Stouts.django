@@ -3,7 +3,7 @@
 
 - name: Prepare Django settings
   template: src=settings.py.j2 dest={{django_etc_dir}}/settings.py
-  notify: uwsgi reload
+  notify: wsgi reload
 
 - name: Check for settings directory exists
   stat: path={{django_settings_dir}}

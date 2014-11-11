@@ -33,12 +33,12 @@ script:
   - sudo /etc/init.d/nginx restart
   - curl localhost | grep "Hello world!" || exit 1
 
-python_pip_latest:
-  - virtualenv
 deploy_dir: "/home/travis/build/deploy"
 source_sources:
   - repo: https://github.com/Dipsomaniac/dj-simple.git
     dest: "{{deploy_src_dir}}"
-wsgi_src_dir: "{{deploy_src_dir}}/simple"
-wsgi_app: "{{deploy_src_dir}}/wsgi.py"
-wsgi_pip_requirements: "{{deploy_src_dir}}/requirements.txt"
+wsgi_applications:
+- name: simple
+  file: "{{deploy_src_dir}}/wsgi.py"
+  app_dir: "{{deploy_src_dir}}/simple"
+  requirements: "{{deploy_src_dir}}/requirements.txt"
