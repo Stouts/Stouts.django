@@ -20,6 +20,8 @@ Ansible role whith setup Django projects.
 
 django_enabled: yes                           # The role is enabled
 
+django_user: "{{deploy_user|default('root')}}" # The user who run manage commands
+
 django_manage_list:                           # List of commands which will be executed
   - collectstatic
   - syncdb
